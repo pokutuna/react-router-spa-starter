@@ -25,7 +25,7 @@ export default function Home() {
             applications
           </p>
           <a
-            href="https://github.com/your-username/your-repo"
+            href="https://github.com/pokutuna/react-router-spa-starter"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
@@ -63,7 +63,7 @@ export default function Home() {
           <div className="space-y-4">
             <CodeBlock
               title="1. Clone or use as template"
-              code="git clone https://github.com/your-username/your-repo.git"
+              code="git clone https://github.com/pokutuna/react-router-spa-starter.git"
             />
             <CodeBlock title="2. Install dependencies" code="npm install" />
             <CodeBlock title="3. Start development server" code="npm run dev" />
