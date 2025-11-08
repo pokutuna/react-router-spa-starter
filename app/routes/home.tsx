@@ -6,21 +6,23 @@ export function meta({}: Route.MetaArgs) {
     { title: "React Router SPA Template" },
     {
       name: "description",
-      content: "A modern SPA template with React Router and Tailwind CSS, ready for GitHub Pages deployment",
+      content:
+        "A modern SPA template with React Router and Tailwind CSS, ready for GitHub Pages deployment",
     },
   ];
 }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <header className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             React Router SPA Template
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            A modern, production-ready template for building single-page applications
+            A modern, production-ready template for building single-page
+            applications
           </p>
           <a
             href="https://github.com/your-username/your-repo"
@@ -57,26 +59,15 @@ export default function Home() {
         </section>
 
         <section className="bg-white rounded-lg shadow-md p-8 mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Quick Start
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Quick Start</h2>
           <div className="space-y-4">
             <CodeBlock
               title="1. Clone or use as template"
               code="git clone https://github.com/your-username/your-repo.git"
             />
-            <CodeBlock
-              title="2. Install dependencies"
-              code="npm install"
-            />
-            <CodeBlock
-              title="3. Start development server"
-              code="npm run dev"
-            />
-            <CodeBlock
-              title="4. Build for production"
-              code="npm run build"
-            />
+            <CodeBlock title="2. Install dependencies" code="npm install" />
+            <CodeBlock title="3. Start development server" code="npm run dev" />
+            <CodeBlock title="4. Build for production" code="npm run build" />
           </div>
         </section>
 
