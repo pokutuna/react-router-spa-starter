@@ -8,5 +8,5 @@ function getBasePath(): string | undefined {
 
 export default {
   ssr: false,
-  basename: getBasePath(),
+  basename: getBasePath() ?? "/",
 } satisfies Config;
