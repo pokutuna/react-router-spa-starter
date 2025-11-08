@@ -15,12 +15,13 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Use ubuntu-latest if build takes over 15 minutes
+    runs-on: ubuntu-slim
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
           cache: "npm"
       - run: npm ci
       - run: npm run build
@@ -29,7 +30,7 @@ jobs:
           path: build/client
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     needs: build
     environment:
       name: github-pages
