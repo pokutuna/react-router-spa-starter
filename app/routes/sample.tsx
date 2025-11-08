@@ -1,5 +1,5 @@
-import type { Route } from "./+types/sample";
 import { Code, Terminal, Zap } from "lucide-react";
+import type { Route } from "./+types/sample";
 
 export function meta({}: Route.MetaArgs) {
   return [

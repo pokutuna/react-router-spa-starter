@@ -1,4 +1,4 @@
-import { Github, Zap, Code, Rocket } from "lucide-react";
+import { Code, Github, Rocket, Zap } from "lucide-react";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
