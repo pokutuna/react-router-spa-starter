@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { ChevronRight, ChevronDown, Shield, Info, Check, X } from "lucide-react";
+import { ChevronRight, ChevronDown, Shield, Info } from "lucide-react";
 import type { Route } from "./+types/iam-visualizer";
 import { sampleIAMRoles } from "../data/sample-iam-roles";
 import type { IAMRole, PermissionNode } from "../types/iam";
@@ -103,30 +103,48 @@ function RoleSelector({
     <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
       <h2 className="text-xl font-semibold mb-4">Select Roles</h2>
       <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
-        {roles.map((role) => (
-          <label
-            key={role.name}
-            className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
-          >
-            <input
-              type="checkbox"
-              checked={selectedRoles.includes(role.name)}
-              onChange={() => onToggleRole(role.name)}
-              className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-            />
-            <div className="flex-1 min-w-0">
-              <div className="font-medium text-gray-900 text-sm">
-                {role.title}
+        {roles.map((role, index) => {
+          const selectedIndex = selectedRoles.indexOf(role.name);
+          const roleLabel = selectedIndex >= 0 ? String.fromCharCode(65 + selectedIndex) : null;
+
+          return (
+            <label
+              key={role.name}
+              className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+            >
+              <input
+                type="checkbox"
+                checked={selectedRoles.includes(role.name)}
+                onChange={() => onToggleRole(role.name)}
+                className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  {roleLabel && (
+                    <span
+                      className="flex items-center justify-center w-6 h-6 rounded font-bold text-sm flex-shrink-0"
+                      style={{
+                        backgroundColor: getRoleColor(selectedIndex, 0.2),
+                        color: getRoleColor(selectedIndex, 1),
+                      }}
+                    >
+                      {roleLabel}
+                    </span>
+                  )}
+                  <div className="font-medium text-gray-900 text-sm">
+                    {role.title}
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500 break-words">
+                  {role.name}
+                </div>
+                <div className="text-xs text-gray-600 mt-1">
+                  {role.includedPermissions.length} permissions
+                </div>
               </div>
-              <div className="text-xs text-gray-500 break-words">
-                {role.name}
-              </div>
-              <div className="text-xs text-gray-600 mt-1">
-                {role.includedPermissions.length} permissions
-              </div>
-            </div>
-          </label>
-        ))}
+            </label>
+          );
+        })}
       </div>
     </div>
   );
@@ -168,16 +186,22 @@ function PermissionTree({
       <div className="mb-4 flex gap-2 flex-wrap">
         {selectedRoles.map((roleName, index) => {
           const role = sampleIAMRoles.find((r) => r.name === roleName);
+          const roleLabel = String.fromCharCode(65 + index);
           return (
             <div
               key={roleName}
               className="flex items-center gap-2 px-3 py-1 rounded-full text-sm"
               style={{ backgroundColor: getRoleColor(index, 0.2) }}
             >
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: getRoleColor(index, 1) }}
-              />
+              <span
+                className="flex items-center justify-center w-5 h-5 rounded-full font-bold text-xs"
+                style={{
+                  backgroundColor: getRoleColor(index, 1),
+                  color: "white",
+                }}
+              >
+                {roleLabel}
+              </span>
               <span className="font-medium">{role?.title}</span>
             </div>
           );
@@ -276,30 +300,22 @@ function TreeNode({
                 node,
                 role?.name || ""
               );
+              const roleLabel = String.fromCharCode(65 + index);
+
+              if (!roleHasPermission) return null;
+
               return (
-                <div
+                <span
                   key={index}
-                  className="flex items-center justify-center w-5 h-5 rounded"
+                  className="flex items-center justify-center w-5 h-5 rounded font-bold text-xs"
                   style={{
-                    backgroundColor: roleHasPermission
-                      ? getRoleColor(index, 0.15)
-                      : "transparent",
+                    backgroundColor: getRoleColor(index, 0.2),
+                    color: getRoleColor(index, 1),
                   }}
-                  title={`${role?.title}: ${roleHasPermission ? "Has" : "Does not have"} permission`}
+                  title={`${role?.title}`}
                 >
-                  {roleHasPermission ? (
-                    <Check
-                      className="w-4 h-4"
-                      style={{ color: getRoleColor(index, 1) }}
-                      strokeWidth={2.5}
-                    />
-                  ) : (
-                    <X
-                      className="w-3 h-3 text-gray-300"
-                      strokeWidth={2}
-                    />
-                  )}
-                </div>
+                  {roleLabel}
+                </span>
               );
             })}
           </div>
