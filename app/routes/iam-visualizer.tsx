@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { ChevronRight, ChevronDown, Shield, Info } from "lucide-react";
+import { ChevronRight, ChevronDown, Shield, Info, Check, X } from "lucide-react";
 import type { Route } from "./+types/iam-visualizer";
 import { sampleIAMRoles } from "../data/sample-iam-roles";
 import type { IAMRole, PermissionNode } from "../types/iam";
@@ -269,28 +269,37 @@ function TreeNode({
             </span>
           )}
 
-          <div className="flex gap-1">
+          <div className="flex gap-0.5">
             {selectedRoles.map((_, index) => {
+              const role = sampleIAMRoles.find((r) => r.name === selectedRoles[index]);
               const roleHasPermission = hasRoleInSubtree(
                 node,
-                sampleIAMRoles.find((r) => r.name === selectedRoles[index])
-                  ?.name || ""
+                role?.name || ""
               );
               return (
                 <div
                   key={index}
-                  className="w-2 h-2 rounded-full"
+                  className="flex items-center justify-center w-5 h-5 rounded"
                   style={{
                     backgroundColor: roleHasPermission
-                      ? getRoleColor(index, 1)
-                      : "#e5e7eb",
+                      ? getRoleColor(index, 0.15)
+                      : "transparent",
                   }}
-                  title={
-                    roleHasPermission
-                      ? "Has permission"
-                      : "Does not have permission"
-                  }
-                />
+                  title={`${role?.title}: ${roleHasPermission ? "Has" : "Does not have"} permission`}
+                >
+                  {roleHasPermission ? (
+                    <Check
+                      className="w-4 h-4"
+                      style={{ color: getRoleColor(index, 1) }}
+                      strokeWidth={2.5}
+                    />
+                  ) : (
+                    <X
+                      className="w-3 h-3 text-gray-300"
+                      strokeWidth={2}
+                    />
+                  )}
+                </div>
               );
             })}
           </div>
