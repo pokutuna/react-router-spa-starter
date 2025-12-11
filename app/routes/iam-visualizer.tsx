@@ -230,8 +230,10 @@ function TreeNode({
   return (
     <div>
       <div
-        className={`flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-50 cursor-pointer transition-colors ${
-          depth > 0 ? "" : "font-medium"
+        className={`flex items-center gap-2 rounded transition-colors ${
+          node.isLeaf
+            ? "px-3 py-2 hover:bg-gray-50 cursor-default"
+            : "px-2 py-1 hover:bg-gray-50 cursor-pointer"
         }`}
         style={{ paddingLeft: `${depth * 1.5 + 0.75}rem` }}
         onClick={() => hasChildren && onToggleNode(node.fullPath)}
@@ -239,25 +241,29 @@ function TreeNode({
         <div className="flex items-center gap-1 min-w-0 flex-1">
           {hasChildren ? (
             isCollapsed ? (
-              <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <ChevronRight className="w-3 h-3 text-gray-400 flex-shrink-0" />
             ) : (
-              <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <ChevronDown className="w-3 h-3 text-gray-400 flex-shrink-0" />
             )
           ) : (
-            <div className="w-4 h-4 flex-shrink-0" />
+            <div className="w-3 h-3 flex-shrink-0" />
           )}
           <span
             className={`truncate ${
-              hasNoRoles ? "text-gray-400 line-through" : "text-gray-900"
+              node.isLeaf
+                ? hasNoRoles
+                  ? "text-gray-400 line-through"
+                  : "text-gray-900"
+                : "text-xs text-gray-500 font-medium"
             }`}
           >
-            {node.name}
+            {node.isLeaf ? node.fullPath : node.name}
           </span>
         </div>
 
         <div className="flex items-center gap-2 flex-shrink-0">
           {hasChildren && isCollapsed && (
-            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+            <span className="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded">
               {stats.totalLeafPermissions} perms
               {stats.diffCount > 0 && ` · ${stats.diffCount} diff`}
             </span>
