@@ -257,7 +257,7 @@ function TreeNode({
                 : "text-xs text-gray-500 font-medium"
             }`}
           >
-            {node.isLeaf ? node.fullPath : node.name}
+            {node.isLeaf ? node.fullPath : `${node.fullPath}.*`}
           </span>
         </div>
 
