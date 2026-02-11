@@ -1,4 +1,5 @@
-import { Code, Github, Rocket, Zap } from "lucide-react";
+import { Code, Github, Rocket, Zap, Shield } from "lucide-react";
+import { Link } from "react-router";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -56,6 +57,29 @@ export default function Home() {
             title="Template Repository"
             description="Use this as a template to quickly start your next project with best practices"
           />
+        </section>
+
+        <section className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-md p-8 mb-8 border-2 border-blue-200">
+          <div className="flex items-start gap-4">
+            <Shield className="w-12 h-12 text-blue-600 flex-shrink-0" />
+            <div className="flex-1">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                IAM Permission Visualizer
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Compare and visualize Google Cloud IAM roles and permissions.
+                Select multiple roles to see their permission differences in a
+                hierarchical tree view.
+              </p>
+              <Link
+                to="/iam-visualizer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                <Shield size={20} />
+                Open IAM Visualizer
+              </Link>
+            </div>
+          </div>
         </section>
 
         <section className="bg-white rounded-lg shadow-md p-8 mb-16">
