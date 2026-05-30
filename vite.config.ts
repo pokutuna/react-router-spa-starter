@@ -1,7 +1,6 @@
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 /** Determine the base path for GitHub Pages */
 function getBasePath(): string | undefined {
@@ -12,6 +11,6 @@ function getBasePath(): string | undefined {
 export default defineConfig(() => {
   return {
     base: getBasePath(),
-    plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+    plugins: [tailwindcss(), reactRouter()],
   };
 });

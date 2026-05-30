@@ -1,4 +1,4 @@
-import { Code, Github, Rocket, Zap } from "lucide-react";
+import { Code, ExternalLink, GitBranch, Rocket, Zap } from "lucide-react";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -30,7 +30,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
           >
-            <Github size={20} />
+            <ExternalLink size={20} />
             View on GitHub
           </a>
         </header>
@@ -52,7 +52,7 @@ export default function Home() {
             description="Pre-configured for seamless deployment to GitHub Pages with proper routing"
           />
           <FeatureCard
-            icon={<Github className="text-gray-700" size={32} />}
+            icon={<GitBranch className="text-gray-700" size={32} />}
             title="Template Repository"
             description="Use this as a template to quickly start your next project with best practices"
           />
