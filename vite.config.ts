@@ -11,8 +11,6 @@ function getBasePath(): string | undefined {
 export default defineConfig(() => {
   return {
     base: getBasePath(),
-    // Vite 8 resolves tsconfig `paths` natively; no plugin needed.
-    resolve: { tsconfigPaths: true },
     plugins: [tailwindcss(), reactRouter()],
   };
 });
