@@ -1,3 +1,8 @@
+# Supply-chain attack mitigation:
+# `cooldown.default-days` delays update PRs until a release is at least
+# 14 days old, giving time for malicious releases to be detected and yanked.
+# Kept in sync with `min-release-age` in .npmrc (which guards direct
+# `npm install` / `npm ci`).
 version: 2
 updates:
   - package-ecosystem: "npm"
