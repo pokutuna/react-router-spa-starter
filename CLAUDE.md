@@ -45,3 +45,7 @@ npm run check     # Lint + format with auto-fix
 
 - **`deploy-pages.yml`**: Deploys `build/client/` to GitHub Pages on push to main
 - **`test.yaml`**: Type check, lint (warnings only), and build on push/PR
+
+## Dependency Upgrades
+
+See [docs/dependency-upgrade-checklist.md](docs/dependency-upgrade-checklist.md) for what to verify beyond CI when bumping dependency versions.
