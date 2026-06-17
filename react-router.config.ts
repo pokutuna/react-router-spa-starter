@@ -11,6 +11,13 @@ function getBasePath(): string | undefined {
 export default {
   ssr: false,
   basename: getBasePath() ?? "/",
+  future: {
+    v8_middleware: true,
+    v8_splitRouteModules: true,
+    v8_viteEnvironmentApi: true,
+    v8_passThroughRequests: true,
+    v8_trailingSlashAwareDataRequests: true,
+  },
   // SPA fallback for GitHub Pages: it serves 404.html for unknown paths, so a
   // direct visit / reload on a sub-route (e.g. /lesson) still loads the app.
   buildEnd({ reactRouterConfig }) {
