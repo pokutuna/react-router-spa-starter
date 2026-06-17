@@ -18,6 +18,15 @@ updates:
       prefix: "deps"
       include: "scope"
     groups:
+      # react-router packages must move together: `@react-router/serve` and
+      # `@react-router/node` pin an *exact* `react-router` peer, so separate
+      # per-package bumps land mismatched lockfiles that fail `npm ci`.
+      # Listed before `dev-dependencies` so `@react-router/dev` joins this
+      # group rather than the dev group (first matching group wins).
+      react-router:
+        patterns:
+          - "react-router"
+          - "@react-router/*"
       dev-dependencies:
         dependency-type: "development"
         update-types:
