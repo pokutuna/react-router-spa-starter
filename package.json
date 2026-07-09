@@ -15,17 +15,17 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@react-router/node": "^7.17.0",
-    "@react-router/serve": "^7.17.0",
+    "@react-router/node": "^8.2.0",
+    "@react-router/serve": "^8.2.0",
     "isbot": "^5.1.43",
     "lucide-react": "^1.21.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.7",
-    "react-router": "^7.17.0"
+    "react-router": "^8.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.0",
-    "@react-router/dev": "^7.17.0",
+    "@react-router/dev": "^8.2.0",
     "@tailwindcss/vite": "^4.3.1",
     "@types/node": "^25.9.3",
     "@types/react": "^19.2.17",
