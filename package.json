@@ -1,7 +1,7 @@
 {
   "name": "react-router-spa-template",
   "version": "1.0.0",
-  "description": "A modern SPA template with React Router v7, TypeScript, and Tailwind CSS, ready for GitHub Pages deployment",
+  "description": "A modern SPA template with React Router v8, TypeScript, and Tailwind CSS, ready for GitHub Pages deployment",
   "private": true,
   "type": "module",
   "scripts": {

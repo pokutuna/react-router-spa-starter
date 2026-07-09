@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Template repository for building SPAs with React Router v7, TypeScript, and Tailwind CSS. Fork this repository to create your own SPA and deploy it to GitHub Pages with zero configuration.
+Template repository for building SPAs with React Router v8, TypeScript, and Tailwind CSS. Fork this repository to create your own SPA and deploy it to GitHub Pages with zero configuration.
 
 ## Technology Stack
 
-React Router v7, React 19, TypeScript, Tailwind CSS v4, Vite, Biome
+React Router v8, React 19, TypeScript, Tailwind CSS v4, Vite, Biome
 
 ## Architecture
 

@@ -1,12 +1,12 @@
 # React Router SPA Template
 
-A modern template for building single-page applications with React Router v7, TypeScript, and Tailwind CSS. Pre-configured for GitHub Pages deployment.
+A modern template for building single-page applications with React Router v8, TypeScript, and Tailwind CSS. Pre-configured for GitHub Pages deployment.
 
 **Demo**: https://pokutuna.github.io/react-router-spa-starter/
 
 ## Features
 
-- React Router v7, React 19, TypeScript
+- React Router v8, React 19, TypeScript
 - Tailwind CSS v4, Vite
 - Biome (linting and formatting)
 - GitHub Pages ready with auto base path detection

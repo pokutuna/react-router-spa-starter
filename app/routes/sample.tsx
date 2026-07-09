@@ -39,7 +39,7 @@ export default function Sample() {
           <Terminal className="w-12 h-12 text-green-500 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Modern Stack</h2>
           <p className="text-gray-600">
-            Built with React Router v7, Tailwind CSS v4, and modern tooling.
+            Built with React Router v8, Tailwind CSS v4, and modern tooling.
           </p>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function Sample() {
         <ul className="space-y-2">
           <li className="flex items-start">
             <span className="text-blue-500 mr-2">✓</span>
-            <span>Client-side routing with React Router v7</span>
+            <span>Client-side routing with React Router v8</span>
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 mr-2">✓</span>
