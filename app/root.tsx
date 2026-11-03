@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -51,7 +52,26 @@ export default function App() {
   );
 }
 
+const subscribeNoop = () => () => {};
+
+/**
+ * False during hydration, true afterwards. The prerendered SPA shell has an
+ * empty body, but an unmatched path puts the router in the error state before
+ * the first render, so the ErrorBoundary would render content that the shell
+ * does not contain (React error #418).
+ */
+function useHydrated() {
+  return useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  );
+}
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  const hydrated = useHydrated();
+  if (!hydrated) return null;
+
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
