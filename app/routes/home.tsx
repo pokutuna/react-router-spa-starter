@@ -39,12 +39,12 @@ export default function Home() {
           <FeatureCard
             icon={<Zap className="text-yellow-500" size={32} />}
             title="Lightning Fast"
-            description="Built with React Router v8 and Vite for optimal performance and developer experience"
+            description="Built with React Router and Vite for optimal performance and developer experience"
           />
           <FeatureCard
             icon={<Code className="text-blue-500" size={32} />}
             title="Modern Stack"
-            description="TypeScript, Tailwind CSS v4, and all the latest web development tools"
+            description="TypeScript, Tailwind CSS, and all the latest web development tools"
           />
           <FeatureCard
             icon={<Rocket className="text-purple-500" size={32} />}
